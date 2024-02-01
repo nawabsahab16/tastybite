@@ -8,8 +8,8 @@ export const sendReservation = async(req, res, next) =>{
     }
     try {
       await Reservation.create(firstName, lastName, email , phone , date, time);
-      res.status(200).json
-      ({
+      res.status(200),
+      json({
         success: true,
         message: "Reservation Sent Successfully",
       });
@@ -21,4 +21,4 @@ export const sendReservation = async(req, res, next) =>{
          return next(new ErrorHandler(validatonErrors.join(" , "), 400));
        }
     }
-};
+}
